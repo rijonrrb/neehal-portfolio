@@ -1,0 +1,354 @@
+/* Custom Animations */
+:root {
+    --base-font: 16px;
+    --scale-up: 1.06; /* slight larger sizing */
+}
+
+/* Slightly larger base font and modern spacing */
+html, body {
+    font-size: var(--base-font);
+}
+
+/* Increase heading sizes slightly across the site */
+#hero h1 {
+    font-size: 3.8rem !important;
+    line-height: 1.02;
+}
+
+h2 {
+    font-size: 1.9rem !important;
+}
+
+h3 {
+    font-size: 1.15rem !important;
+}
+
+p, li, .text-sm {
+    font-size: 1rem !important;
+}
+
+.container { padding-left: 1.25rem; padding-right: 1.25rem; }
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInLeft {
+    from { opacity: 0; transform: translateX(-20px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInRight {
+    from { opacity: 0; transform: translateX(20px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes pop {
+    0% { transform: scale(0.96); opacity: 0; }
+    60% { transform: scale(1.02); opacity: 1; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes floaty {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+    100% { transform: translateY(0); }
+}
+
+/* Animation Classes */
+.animate-fadeInUp { animation: fadeInUp 0.6s ease-out forwards; }
+.animate-fadeInLeft { animation: fadeInLeft 0.6s ease-out forwards; }
+.animate-fadeInRight { animation: fadeInRight 0.6s ease-out forwards; }
+.animate-pop { animation: pop 0.5s cubic-bezier(.2,.9,.2,1) forwards; }
+.animate-floaty { animation: floaty 3.5s ease-in-out infinite; }
+
+/* Additional animations */
+@keyframes rotateIn {
+    from { transform: rotate(-6deg) scale(0.98); opacity: 0; }
+    to { transform: rotate(0deg) scale(1); opacity: 1; }
+}
+
+.animate-rotateIn { animation: rotateIn 0.6s cubic-bezier(.2,.9,.2,1) forwards; }
+
+@keyframes blurIn {
+    from { filter: blur(6px); opacity: 0; transform: translateY(8px); }
+    to { filter: blur(0); opacity: 1; transform: translateY(0); }
+}
+
+.animate-blurIn { animation: blurIn 0.7s ease forwards; }
+.animate-fadeIn {
+    animation: fadeIn 0.6s ease-out forwards;
+}
+
+/* Animation Delays */
+.animation-delay-100 {
+    animation-delay: 0.1s;
+}
+
+.animation-delay-200 {
+    animation-delay: 0.2s;
+}
+
+.animation-delay-300 {
+    animation-delay: 0.3s;
+}
+
+.animation-delay-400 {
+    animation-delay: 0.4s;
+}
+
+.animation-delay-500 {
+    animation-delay: 0.5s;
+}
+
+/* Stagger helper: child elements with .stagger-item will animate in sequence */
+.stagger-item { opacity: 0; transform: translateY(12px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.stagger-item.animated { opacity: 1; transform: translateY(0); }
+
+/* Slightly larger cards and padding for a modern feel */
+.rounded-xl { padding: 0.9rem; }
+.p-6 { padding: 1.05rem !important; }
+
+/* Hover effects for most interactive areas */
+.card-hover { transition: transform 0.28s cubic-bezier(.2,.9,.2,1), box-shadow 0.28s ease, border-color 0.28s ease; }
+.card-hover:hover { transform: translateY(-6px) scale(var(--scale-up)); box-shadow: 0 18px 40px rgba(2,6,23,0.35); border-color: rgba(99,102,241,0.18); }
+
+.icon-pop { transition: transform 0.24s ease, color 0.24s ease; }
+.icon-pop:hover { transform: scale(1.14); }
+
+.tag-hover { transition: background-color 0.22s ease, color 0.22s ease, transform 0.22s ease; }
+.tag-hover:hover { transform: translateY(-3px); background-color: #eef2ff; color: #4f46e5; }
+
+.link-underline:hover { color: #4f46e5; }
+
+/* Make most links and small headings subtly lift on hover */
+a:hover, .h-small:hover { transform: translateY(-2px); }
+
+/* Education specific smaller type */
+.edu-small p, .edu-small li, .edu-small .text-sm { font-size: 0.92rem !important; }
+.edu-small h3, .edu-small h4 { font-size: 0.98rem !important; }
+
+
+/* Initial state for animated elements */
+.animate-fadeInUp,
+.animate-fadeIn {
+    opacity: 0;
+}
+
+/* Scroll Animation */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-on-scroll.animated {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.animate-on-scroll.animation-delay-100 {
+    transition-delay: 0.1s;
+}
+
+.animate-on-scroll.animation-delay-200 {
+    transition-delay: 0.2s;
+}
+
+.animate-on-scroll.animation-delay-300 {
+    transition-delay: 0.3s;
+}
+
+.animate-on-scroll.animation-delay-400 {
+    transition-delay: 0.4s;
+}
+
+/* Hover Effects */
+.hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0f172a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #6366f1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #4f46e5;
+}
+
+/* Selection */
+::selection {
+    background: #6366f1;
+    color: white;
+}
+
+/* Focus States */
+a:focus,
+button:focus {
+    outline: 2px solid #6366f1;
+    outline-offset: 2px;
+}
+
+/* Body base styles */
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Container max width override for larger screens */
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1280px;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .animate-fadeInUp,
+    .animate-on-scroll {
+        animation-duration: 0.4s;
+        transition-duration: 0.4s;
+    }
+}
+
+/* Card hover states */
+.card-hover {
+    transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+    border-color: rgba(99, 102, 241, 0.3);
+}
+
+/* Button styles */
+.btn-primary {
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    box-shadow: 0 4px 20px rgba(99, 102, 241, 0.4);
+    transform: translateY(-1px);
+}
+
+/* Timeline connector animation */
+.timeline-line {
+    background: linear-gradient(180deg, #6366f1 0%, #e2e8f0 100%);
+}
+
+/* Tag/Badge hover effect */
+.tag-hover {
+    transition: all 0.2s ease;
+}
+
+.tag-hover:hover {
+    background-color: #e0e7ff;
+    color: #4f46e5;
+}
+
+/* Section transitions */
+section {
+    position: relative;
+}
+
+/* Glass morphism effect */
+.glass {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+/* Gradient text utility */
+.gradient-text {
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Icon animation on hover */
+.icon-hover:hover i {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+
+/* Link underline animation */
+.link-underline {
+    position: relative;
+}
+
+.link-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #6366f1;
+    transition: width 0.3s ease;
+}
+
+.link-underline:hover::after {
+    width: 100%;
+}
+
+/* Loading states */
+.skeleton {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* Print styles */
+@media print {
+    .animate-fadeInUp,
+    .animate-on-scroll {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+    
+    .no-print {
+        display: none !important;
+    }
+}
